@@ -140,7 +140,7 @@
                   </form>
                   </div> 
                   </div>
-                <div class="send_bt"><a href="#">SEARCH</a></div>
+                          <div class="send_bt"><a href="#" onclick="sendSMS()">BOOK NOW</a></div>
           </div>
           </div>
         </div>
@@ -181,7 +181,7 @@
                   </form>
                   </div> 
                   </div>
-                <div class="send_bt"><a href="#">SEARCH</a></div>
+          <div class="send_bt"><a href="#" onclick="sendSMS()">BOOK NOW</a></div>
           </div>
           </div>
         </div>
@@ -301,7 +301,7 @@
 </script>   
 <script>
 function sendSMS() {
-  var phoneNumber = '+919003858716'; // Replace with the recipient's phone number
+  var phoneNumber = '+919751284089'; // Replace with the recipient's phone number
   var pickup = document.getElementById('pickup').value;
   var drop = document.getElementById('drop').value;
   var when = document.getElementById('when').value;
@@ -313,7 +313,7 @@ function sendSMS() {
               "Name: " + name + "\n" +
               "Mobile: " + mobile;
   var twilioAccountSid = 'ACa8065a19cebe7ee10f45124c53c722dc';
-  var twilioAuthToken = '86f11381a908a46cabad4615ff7cf9d4';
+  var twilioAuthToken = '06835cb31a5e687887676c1dfa57bb0f';
   var twilioPhoneNumber = '+19863006033';
 
   var apiUrl = 'https://api.twilio.com/2010-04-01/Accounts/' + twilioAccountSid + '/Messages.json';
@@ -333,7 +333,7 @@ function sendSMS() {
   })
   .then(response => response.json())
   .then(data => {
-	  alert(data);
+	  alert("Booking Sucessfully!");
     console.log('Message sent successfully!');
     console.log(data);
   })
