@@ -333,6 +333,7 @@ function sendSMS() {
   })
   .then(response => response.json())
   .then(data => {
+	  alert(data);
     console.log('Message sent successfully!');
     console.log(data);
   })
