@@ -301,7 +301,7 @@
 </script>   
 <script>
 function sendSMS() {
-  var phoneNumber = '+919751284089'; // Replace with the recipient's phone number
+  var phoneNumber = '+919003858716'; // Replace with the recipient's phone number
   var pickup = document.getElementById('pickup').value;
   var drop = document.getElementById('drop').value;
   var when = document.getElementById('when').value;
@@ -313,8 +313,8 @@ function sendSMS() {
               "Name: " + name + "\n" +
               "Mobile: " + mobile;
   var twilioAccountSid = 'AC4e76b38fc0c4305c0ea2a6ecab977cb0';
-  var twilioAuthToken = '291080283b39247a2efb84cbe12a8d59';
-  var twilioPhoneNumber = '+16592764251';
+  var twilioAuthToken = '69840fa35075d7a88c0ba427b48f8092';
+  var twilioPhoneNumber ='+16592764251';
 
   var apiUrl = 'https://api.twilio.com/2010-04-01/Accounts/' + twilioAccountSid + '/Messages.json';
   var authHeader = 'Basic ' + btoa(twilioAccountSid + ':' + twilioAuthToken);
@@ -333,7 +333,7 @@ function sendSMS() {
   })
   .then(response => response.json())
   .then(data => {
-	  alert("Booking Sucessfully!");
+	  alert(data);
     console.log('Message sent successfully!');
     console.log(data);
   })
