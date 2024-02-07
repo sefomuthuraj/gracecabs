@@ -106,94 +106,9 @@
           </div>
         </div>
     </div>
-    <div class="carousel-item">
-      <div class="row">
-          <div class="col-md-6">
-            <div class="book_now">
-              <h1 class="book_text">BOOK NOW</h1>
-              <h1 class="call_text">(+91) 9751284089</h1>
-            </div>
-            <div class="image_1"><img src="images/img-1.png"></div>
-          </div>
-          <div class="col-md-6">
-            <h1 class="booking_text">Book a City Taxi to your destination in town</h1>
-            <div class="contact_bg">
-            <div class="input_main">
-              <div class="container">
-                <h2 class="request_text">Your everyday travel partner</h2>
-                <form action="/action_page.php">
-                <div class="form-group">
-				<div class="form-group">
-                  <input type="text" class="email-bt" placeholder="NAME" id="name" name="NAME">
-                </div>
-				<div class="form-group">
-                  <input type="text" class="email-bt" placeholder="MOBILE" id="mobile" name="mobile">
-                </div>
-                  <input type="text" class="email-bt" placeholder="PICKUP" id="pickup" name="Name">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="email-bt" placeholder="DROP" id="drop" name="Email">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="email-bt" placeholder="WHEN" id="when" name="Email">
-                </div>
-                  </form>
-                  </div> 
-                  </div>
-                          <div class="send_bt"><a href="#" onclick="sendSMS()">BOOK NOW</a></div>
-          </div>
-          </div>
-        </div>
-    </div>
-    <div class="carousel-item">
-      <div class="row">
-          <div class="col-md-6">
-            <div class="book_now">
-              <h1 class="book_text">BOOK NOW</h1>
-              <h1 class="call_text">(+91) 9751284089</h1>
-            </div>
-            <div class="image_1"><img src="images/car.png"></div>
-          </div>
-          <div class="col-md-6">
-            <h1 class="booking_text">Book a City Taxi to your destination in town</h1>
-            <div class="contact_bg">
-            <div class="input_main">
-              <div class="container">
-                <h2 class="request_text">Your everyday travel partner</h2>
-                <form action="/action_page.php">
-				<div class="form-group">
-                  <input type="text" class="email-bt" placeholder="NAME" id="name" name="NAME">
-                </div>
-				<div class="form-group">
-                  <input type="text" class="email-bt" placeholder="MOBILE" id="mobile" name="mobile">
-                </div>
-                  <div class="form-group">
-				  
-                  <input type="text" class="email-bt" placeholder="PICKUP" id="pickup" name="Name">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="email-bt" placeholder="DROP" id="drop" name="Email">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="email-bt" placeholder="WHEN" id="when" name="Email">
-                </div>
-				
-                  </form>
-                  </div> 
-                  </div>
-          <div class="send_bt"><a href="#" onclick="sendSMS()">BOOK NOW</a></div>
-          </div>
-          </div>
-        </div>
+   
     </div>
   </div>
-  <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
-    <i class="fa fa-angle-left"></i></a>
-  </a>
-  <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
-    <i class="fa fa-angle-right"></i>
-  </a>
-  </a>
 </div>
         
       </div>
@@ -333,7 +248,7 @@ function sendSMS() {
   })
   .then(response => response.json())
   .then(data => {
-	  alert(data);
+	alert('Message sent successfully!');
     console.log('Message sent successfully!');
     console.log(data);
   })
