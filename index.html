@@ -216,47 +216,68 @@
 </script>   
 <script>
 function sendSMS() {
+  var mobileNumberRegex = /^\d{10}$/;	
+  var textOnlyRegex = /^[a-zA-Z]+$/;
   var phoneNumber = '+919751284089'; // Replace with the recipient's phone number
   var pickup = document.getElementById('pickup').value;
   var drop = document.getElementById('drop').value;
   var when = document.getElementById('when').value;
   var name = document.getElementById('name').value;
   var mobile = document.getElementById('mobile').value;
-  var message = "Pickup: " + pickup + "\n" +
-              "Drop: " + drop + "\n" +
-              "When: " + when + "\n" +
-              "Name: " + name + "\n" +
-              "Mobile: " + mobile;
-  var twilioAccountSid = 'AC4e76b38fc0c4305c0ea2a6ecab977cb0';
-  var twilioAuthToken = '69840fa35075d7a88c0ba427b48f8092';
-  var twilioPhoneNumber ='+16592764251';
+   if(name.trim() === ""){
+		alert("Please Enter Name");
+	}else if(mobile.trim() === ""){
+		alert("Please Enter the Mobile Number");
+	}else if (!mobileNumberRegex.test(mobile)) {
+		alert("Please Enter vaild Mobile Number");
+    }else if (pickup.trim() === "") {
+		alert("Please Enter your Pickup place");
+	}else if (!textOnlyRegex.test(pickup)) {
+		alert("Please Enter valid pickup place");
+    }else if(drop.trim() === ""){
+		alert("Please Enter your Drop place");
+	}else if (!textOnlyRegex.test(drop)) {
+		alert("Please Enter valid drop place");
+    }else if(when.trim() === ""){
+		alert("Enter When the time to travel my cab");
+	}else{
+	 
+	  var message = "Pickup: " + pickup + "\n" +
+				  "Drop: " + drop + "\n" +
+				  "When: " + when + "\n" +
+				  "Name: " + name + "\n" +
+				  "Mobile: " + mobile;
+	  var twilioAccountSid = 'AC4e76b38fc0c4305c0ea2a6ecab977cb0';
+	  var twilioAuthToken = '69840fa35075d7a88c0ba427b48f8092';
+	  var twilioPhoneNumber ='+16592764251';
 
-  var apiUrl = 'https://api.twilio.com/2010-04-01/Accounts/' + twilioAccountSid + '/Messages.json';
-  var authHeader = 'Basic ' + btoa(twilioAccountSid + ':' + twilioAuthToken);
+	  var apiUrl = 'https://api.twilio.com/2010-04-01/Accounts/' + twilioAccountSid + '/Messages.json';
+	  var authHeader = 'Basic ' + btoa(twilioAccountSid + ':' + twilioAuthToken);
 
-  var formData = new FormData();
-  formData.append('To', phoneNumber);
-  formData.append('From', twilioPhoneNumber);
-  formData.append('Body', message);
+	  var formData = new FormData();
+	  formData.append('To', phoneNumber);
+	  formData.append('From', twilioPhoneNumber);
+	  formData.append('Body', message);
 
-  fetch(apiUrl, {
-    method: 'POST',
-    headers: {
-      'Authorization': authHeader,
-    },
-    body: formData,
-  })
-  .then(response => response.json())
-  .then(data => {
-	alert('Message sent successfully!');
-    console.log('Message sent successfully!');
-    console.log(data);
-  })
-  .catch(error => {
-    console.error('Error sending message:');
-    console.error(error);
+	  fetch(apiUrl, {
+		method: 'POST',
+		headers: {
+		  'Authorization': authHeader,
+		},
+		body: formData,
+	  })
+	  .then(response => response.json())
+	  .then(data => {
+		alert('Message sent successfully!');
+		console.log('Message sent successfully!');
+		console.log(data);
+	  })
+	  .catch(error => {
+		console.error('Error sending message:');
+		console.error(error);
   
-});
+	});
+}
 }
 </script>
 </body>
